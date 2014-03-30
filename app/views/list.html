@@ -1,0 +1,8 @@
+<div ng-include="'views/header.html'"></div>
+
+<div class="row marketing" ng-repeat="question in questions">
+  <h2 class="bg-primary"><a ng-href="#/question/{{question._id}}">{{question.title}}</a></h2>
+</div>
+<div class="col-sm-offset-2 col-sm-5">
+  <a ng-href="#/question" class="btn btn-primary">Create Question</a>
+</div>

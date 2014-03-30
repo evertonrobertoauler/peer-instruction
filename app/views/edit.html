@@ -1,0 +1,27 @@
+<div ng-include="'views/header.html'"></div>
+
+<form class="form-horizontal" name="questionary">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Question</label>
+    <div class="col-sm-5">
+      <input class="form-control" type="text" ng-model="question.title" required>
+    </div>
+  </div>
+
+  <div class="form-group" ng-repeat="answer in question.answers">
+    <label class="col-sm-2 control-label">{{$index + 1}}</label>
+    <div class="col-sm-3">
+      <input class="form-control" type="text" ng-model="answer.answer" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-5">
+      <a ng-href="#/questions" class="btn btn-default">Cancel</a>
+      <button ng-click="save()" ng-disabled="questionary.$invalid || !questionary.$dirty" class="btn btn-primary">Save</button>
+      <a ng-click="delete()" ng-show="canDelete" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+</form>
